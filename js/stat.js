@@ -54,13 +54,9 @@ window.renderStatistics = function(ctx, names, times) {
 
   for (var i = 0; i < names.length; i++) {
     var barHeight = (maxBarHeight * times[i]) / maxTime;
-
     renderText(ctx, Math.floor(times[i]), CLOUD_X + GAP + (GAP + BAR_WIDTH) * i, CLOUD_HEIGHT - barHeight - FONT_GAP - 10);
-
     (names[i] === 'Вы') ? ctx.fillStyle = MY_BAR_COLOR : ctx.fillStyle = getRandomColor(0, 100);
-
     ctx.fillRect(CLOUD_X + GAP + (GAP + BAR_WIDTH) * i, CLOUD_HEIGHT - FONT_GAP, BAR_WIDTH, -barHeight);
-
     renderText(ctx, names[i], CLOUD_X + GAP + (GAP + BAR_WIDTH) * i, CLOUD_HEIGHT);
   }
 }
