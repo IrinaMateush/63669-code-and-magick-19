@@ -51,11 +51,7 @@ window.renderStatistics = function (ctx, names, times) {
   for (var i = 0; i < names.length; i++) {
     var barHeight = (maxBarHeight * times[i]) / maxTime;
     renderText(ctx, Math.floor(times[i]), CLOUD_X + GAP + (GAP + BAR_WIDTH) * i, CLOUD_HEIGHT - barHeight - FONT_GAP - 10);
-    if (names[i] === 'Вы') {
-      ctx.fillStyle = MY_BAR_COLOR;
-    } else {
-      ctx.fillStyle = randomColor(0, 100);
-    }
+    ctx.fillStyle = names[i] === 'Вы' ? MY_BAR_COLOR : randomColor(0, 100);
     ctx.fillRect(CLOUD_X + GAP + (GAP + BAR_WIDTH) * i, CLOUD_HEIGHT - FONT_GAP, BAR_WIDTH, -barHeight);
     renderText(ctx, names[i], CLOUD_X + GAP + (GAP + BAR_WIDTH) * i, CLOUD_HEIGHT);
   }
