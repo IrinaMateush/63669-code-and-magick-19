@@ -11,7 +11,7 @@ var BAR_WIDTH = 40;
 var maxBarHeight = 150; // общая высота гистограммы
 var MY_BAR_COLOR = 'rgba(255, 0, 0, 1)';
 
-function getRandomColor(min, max) {
+var randomColor = function (min, max) {
   return 'hsl(240,' + (Math.floor(Math.random() * (max - min + 1)) + min) + '%, 50%)';
 }
 
@@ -54,7 +54,7 @@ window.renderStatistics = function (ctx, names, times) {
     if (names[i] === 'Вы') {
       ctx.fillStyle = MY_BAR_COLOR;
     } else {
-      ctx.fillStyle = getRandomColor(0, 100);
+      ctx.fillStyle = randomColor(0, 100);
     }
     ctx.fillRect(CLOUD_X + GAP + (GAP + BAR_WIDTH) * i, CLOUD_HEIGHT - FONT_GAP, BAR_WIDTH, -barHeight);
     renderText(ctx, names[i], CLOUD_X + GAP + (GAP + BAR_WIDTH) * i, CLOUD_HEIGHT);
