@@ -23,6 +23,17 @@ var getRandomWisards = function () {
   return wizards;
 };
 
+var getWisard = function () {
+  for (var i = 0; i < count; i++) {
+    var wizardElement = similarWizardTemplate.cloneNode(true);
+    wizardElement.querySelector('.setup-similar-label').textContent = wizards[i].name;
+    wizardElement.querySelector('.wizard-coat').style.fill = wizards[i].coatColor;
+    wizardElement.querySelector('.wizard-eyes').style.fill = wizards[i].eyesColor;
+    fragment.appendChild(wizardElement);
+  }
+  return fragment;
+};
+
 var userDialogElement = document.querySelector('.setup');
 userDialogElement.classList.remove('hidden');
 
@@ -37,12 +48,6 @@ var fragment = document.createDocumentFragment();
 
 getRandomWisards(count);
 
-for (var i = 0; i < count; i++) {
-  var wizardElement = similarWizardTemplate.cloneNode(true);
-  wizardElement.querySelector('.setup-similar-label').textContent = wizards[i].name;
-  wizardElement.querySelector('.wizard-coat').style.fill = wizards[i].coatColor;
-  wizardElement.querySelector('.wizard-eyes').style.fill = wizards[i].eyesColor;
-  fragment.appendChild(wizardElement);
-}
+getWisard();
 
 similarListElement.appendChild(fragment);
