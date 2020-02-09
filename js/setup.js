@@ -12,7 +12,7 @@ var getRandomElement = function (arr) {
   return arr[i];
 };
 
-var getRandomWisards = function () {
+var getRandomWisards = function (count) {
   for (var i = 0; i < count; i++) {
     wizards.push({
       name: getRandomElement(WIZARD_NAMES) + ' ' + getRandomElement(WIZARD_SURNAMES),
@@ -23,7 +23,7 @@ var getRandomWisards = function () {
   return wizards;
 };
 
-var getWisard = function () {
+var getWisardElement = function (count) {
   for (var i = 0; i < count; i++) {
     var wizardElement = similarWizardTemplate.cloneNode(true);
     wizardElement.querySelector('.setup-similar-label').textContent = wizards[i].name;
@@ -48,6 +48,6 @@ var fragment = document.createDocumentFragment();
 
 getRandomWisards(count);
 
-getWisard();
+getWisardElement(count);
 
 similarListElement.appendChild(fragment);
